@@ -1,0 +1,19 @@
+server:
+  port: 9090
+
+graphql:
+  packages: "eu.ncouret.wows.graphql"
+  playground:
+    enabled: false
+  subscriptions:
+    keepAliveInterval: 1000
+
+application:
+  wargaming:
+    host: "https://api.worldofwarships.eu/wows"
+  id: "43d10243839f1414c555f65b371c25bf"
+
+logging:
+  level:
+    eu:
+      ncouret: "DEBUG"

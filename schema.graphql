@@ -1,0 +1,58 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    subscription: Subscription
+}
+
+type PlayerInfoResponse {
+    accountId: String!
+    createdAt: Int!
+    hiddenProfile: Boolean!
+    lastBattleTime: Int!
+    levelingPoints: Int!
+    levelingTier: Int!
+    logoutAt: Int!
+    nickname: String!
+}
+
+type PlayerSearchResponse {
+    accountId: String
+    nickname: String!
+}
+
+type Query {
+    "Query the Wargaming API for the information of a certain player"
+    playerInfo(parameters: PlayerInfoParametersInput!): [PlayerInfoResponse!]!
+    "Query the Wargaming API to search for players' account"
+    searchPlayer(search: String!, type: SearchType!): [PlayerSearchResponse!]!
+}
+
+type Subscription {
+    "Fetch the player every 5 seconds"
+    player(params: PlayerInfoParametersInput!): [PlayerInfoResponse!]!
+}
+
+enum Language {
+    CS
+    DE
+    EN
+    ES
+    FR
+    JA
+    PL
+    RU
+    TH
+    TW
+}
+
+enum SearchType {
+    EXACT
+    STARTS_WITH
+}
+
+input PlayerInfoParametersInput {
+    accountId: String!
+    fields: [String!]!
+    language: Language!
+}
